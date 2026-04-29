@@ -4,6 +4,7 @@ public class Materia {
     private String codigo;
     private int creditos;
     private double calificacion;
+    private Profesor profesor;
 
     public Materia(String nombre, String codigo, int creditos) {
         if (nombre == null || nombre.isBlank()) {
@@ -31,6 +32,18 @@ public class Materia {
         return calificacion;
     }
 
+    public Profesor getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(Profesor profesor) {
+        if (profesor == null) {
+            throw new IllegalArgumentException("El profesor no puede ser nulo");
+        }
+
+        this.profesor = profesor;
+    }
+
     public void setCodigo(String codigo) {
         if (codigo == null || codigo.isBlank()) {
             throw new IllegalArgumentException("El codigo no puede ser nulo o vacio");
@@ -43,6 +56,7 @@ public class Materia {
         if (creditos < 0) {
             throw new IllegalArgumentException("Los creditos no pueden ser negativos");
         }
+
         this.creditos = creditos;
     }
 
@@ -50,6 +64,18 @@ public class Materia {
         if (calificacion < 0 || calificacion > 10) {
             throw new IllegalArgumentException("Nota invalida");
         }
+
         this.calificacion = calificacion;
+    }
+
+    @Override
+    public String toString() {
+        return "Materia{" +
+                "nombre='" + nombre + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", creditos=" + creditos +
+                ", calificacion=" + calificacion +
+                ", profesor=" + profesor +
+                '}';
     }
 }

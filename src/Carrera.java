@@ -19,7 +19,6 @@ public class Carrera {
     }
 
     public void agregarEstudiante(Estudiante e) {
-
         if (e == null) {
             throw new IllegalArgumentException("El estudiante no puede ser null");
         }
@@ -47,8 +46,7 @@ public class Carrera {
 
         for (Estudiante e : estudiantes) {
             if (e.getNombre().contains(texto)) {
-                System.out.println("Nombre: " + e.getNombre() + " | Apellido: " + e.getApellido() + " | Carrera: "
-                        + e.getCarrera());
+                System.out.println("Nombre: " + e.getNombre() + " | Apellido: " + e.getApellido() + " | Carrera: " + e.getCarrera());
                 encontrado = true;
             }
         }
@@ -57,5 +55,4 @@ public class Carrera {
             System.out.println("No se ha encontrado un alumno con ese nombre");
         }
     }
-
 }

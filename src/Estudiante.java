@@ -1,45 +1,19 @@
 import java.util.ArrayList;
 
-public class Estudiante {
+// Herencia: Estudiante extiende Persona, heredando nombre, apellido, edad y documento.
+public class Estudiante extends Persona {
 
-    private String nombre;
-    private String apellido;
-    private int edad;
     private String carrera;
     private double promedio;
     private ArrayList<Materia> materias;
 
-
-    public Estudiante() {
-    }
-
-    public Estudiante(String nombre, String apellido, int edad, String carrera, double promedio) {
-        if (nombre == null || nombre.isBlank()) {
-            throw new IllegalArgumentException("El nombre no puede ser nulo o vacio");
-        }
-
-        if (apellido == null || apellido.isBlank()) {
-            throw new IllegalArgumentException("El apellido no puede ser nulo o vacio");
-        }
-
-        this.apellido = apellido;
-        this.nombre = nombre;
-        setEdad(edad);
+    public Estudiante(String nombre, int edad, String apellido,
+                      String documento, String carrera,
+                      double promedio, ArrayList<Materia> materias) {
+        super(nombre, edad, apellido, documento);
         setCarrera(carrera);
         setPromedio(promedio);
-        this.materias = new ArrayList<>();
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getEdad() {
-        return edad;
+        this.materias = materias;
     }
 
     public String getCarrera() {
@@ -52,14 +26,6 @@ public class Estudiante {
 
     public ArrayList<Materia> getMaterias() {
         return materias;
-    }
-
-    public void setEdad(int edad) {
-        if (edad < 16) {
-            throw new IllegalArgumentException("La edad de ser mayor a 16");
-        }
-
-        this.edad = edad;
     }
 
     public void setCarrera(String carrera) {
@@ -82,6 +48,7 @@ public class Estudiante {
         if (m == null) {
             throw new IllegalArgumentException("La materia no puede ser nula");
         }
+
         materias.add(m);
     }
 
@@ -108,6 +75,15 @@ public class Estudiante {
         }
 
         return (suma / materias.size());
+    }
 
+    // Polimorfismo: sobrescribe toString y usa super.toString()
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", carrera='" + carrera + '\'' +
+                ", promedio=" + promedio +
+                ", materias=" + materias +
+                '}';
     }
 }

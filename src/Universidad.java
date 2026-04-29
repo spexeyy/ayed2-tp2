@@ -35,5 +35,4 @@ public class Universidad {
     public ArrayList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
-
 }
