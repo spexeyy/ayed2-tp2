@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 // Herencia: Personal extiende Persona
-public class Personal extends Persona {
+public class Personal extends Persona implements MiembroUniversidad {
 
     private String departamento;
     private String puesto;
@@ -64,5 +64,21 @@ public class Personal extends Persona {
                 ", puesto='" + puesto + '\'' +
                 ", fechaIngreso=" + fechaIngreso +
                 '}';
+    }
+
+    @Override
+    public String obtenerRol() {
+        return "Personal";
+    }
+
+    @Override
+    public String obtenerInformacionCompleta() {
+        return "Nombre: " + getNombre() + " " + getApellido() +
+                ", Documento: " + getDocumento() +
+                ", Edad: " + getEdad() +
+                ", Rol: " + obtenerRol() +
+                ", Departamento: " + departamento +
+                ", Puesto: " + puesto +
+                ", Fecha de ingreso: " + fechaIngreso;
     }
 }

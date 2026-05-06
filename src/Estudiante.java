@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 // Herencia: Estudiante extiende Persona, heredando nombre, apellido, edad y documento.
-public class Estudiante extends Persona {
+public class Estudiante extends Persona implements  MiembroUniversidad {
 
     private String carrera;
     private double promedio;
@@ -85,5 +85,20 @@ public class Estudiante extends Persona {
                 ", promedio=" + promedio +
                 ", materias=" + materias +
                 '}';
+    }
+
+    @Override
+    public String obtenerRol() {
+        return "Estudiante";
+    }
+
+    @Override
+    public String obtenerInformacionCompleta() {
+        return "Nombre: " + getNombre() + " " + getApellido() +
+                ", Documento: " + getDocumento() +
+                ", Edad: " + getEdad() +
+                ", Rol: " + obtenerRol() +
+                ", Carrera: " + carrera +
+                ", Promedio: " + promedio;
     }
 }

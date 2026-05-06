@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 // Herencia: Profesor extiende Persona
-public class Profesor extends Persona {
+public class Profesor extends Persona implements MiembroUniversidad {
 
     private String especialidad;
     private int aniosExperiencia;
@@ -60,5 +60,21 @@ public class Profesor extends Persona {
                 ", aniosExperiencia=" + aniosExperiencia +
                 ", materiasAsignadas=" + materiasAsignadas +
                 '}';
+    }
+
+    @Override
+    public String obtenerRol() {
+        return "Profesor";
+    }
+
+    @Override
+    public String obtenerInformacionCompleta() {
+        return "Nombre: " + getNombre() + " " + getApellido() +
+                ", Documento: " + getDocumento() +
+                ", Edad: " + getEdad() +
+                ", Rol: " + obtenerRol() +
+                ", Especialidad: " + especialidad +
+                ", Años de experiencia: " + aniosExperiencia +
+                ", Cantidad de materias: " + materiasAsignadas.size();
     }
 }

@@ -81,8 +81,7 @@ public class Main {
                     Estudiante nuevo = new Estudiante(
                             nombre, edad, apellido, documento,
                             carreras.get(idxCarrera).getNombre(),
-                            promedio, new ArrayList<>()
-                    );
+                            promedio, new ArrayList<>());
                     estudiantes.add(nuevo);
                     carreras.get(idxCarrera).agregarEstudiante(nuevo);
                     System.out.println("Estudiante agregado correctamente");
